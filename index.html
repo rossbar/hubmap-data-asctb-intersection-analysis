@@ -1,0 +1,1275 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ASCT+B tables, OMAPs, and portal data &#8212; ASCT+B vs. Data  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ASCT+B vs. Data  documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="asct-b-tables-omaps-and-portal-data">
+<h1>ASCT+B tables, OMAPs, and portal data<a class="headerlink" href="#asct-b-tables-omaps-and-portal-data" title="Permalink to this heading">#</a></h1>
+<p>This notebook presents a preliminary investigation of the information in the
+ASCT+B tables and OMAPs.</p>
+<section id="data-annotation">
+<h2>Data annotation<a class="headerlink" href="#data-annotation" title="Permalink to this heading">#</a></h2>
+<p>We use the ASCT+B and OMAPs to inform cell-type annotations for the HubMAP data;
+i.e. determining the cell-type categories and a preliminary mapping of protein
+markers to cell types.</p>
+<p>The overlap between protein markers in the tables and the markers present in the
+actual multiplex imaging data impacts what we would expect to be able to
+annotate.</p>
+<section id="example-kidney-data">
+<h3>Example: Kidney data<a class="headerlink" href="#example-kidney-data" title="Permalink to this heading">#</a></h3>
+<p>The MIBI images of the kidney available on the hubmap data portal (not yet
+published, still in QA) currently contain the following marker panel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recorded manually since data is not publicly available</span>
+<span class="n">kidney_data_markers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;AE1&quot;</span><span class="p">,</span> <span class="s2">&quot;AQP1&quot;</span><span class="p">,</span> <span class="s2">&quot;CALBINDIN&quot;</span><span class="p">,</span> <span class="s2">&quot;CD31&quot;</span><span class="p">,</span> <span class="s2">&quot;COLIV&quot;</span><span class="p">,</span> <span class="s2">&quot;NAKATPASE&quot;</span><span class="p">,</span> <span class="s2">&quot;PCAD&quot;</span><span class="p">,</span> <span class="s2">&quot;S6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SMA&quot;</span><span class="p">,</span> <span class="s2">&quot;VIMENTIN&quot;</span><span class="p">,</span> <span class="s2">&quot;DAPI_S001&quot;</span><span class="p">,</span> <span class="s2">&quot;DAPI_S009&quot;</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of markers present in data: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">kidney_data_markers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of markers present in data: 12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load data from the ASCT+B exporter into a graph data structure…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;Downloads/asct+b_graph_data_selected_organs_2024.01.20_03.14.json&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">((</span><span class="n">node</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">node</span><span class="p">)</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;nodes&quot;</span><span class="p">])</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">((</span><span class="n">e</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">],</span> <span class="n">e</span><span class="p">[</span><span class="s2">&quot;target&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;edges&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>… and extract the markers found in the table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">asctb_table_markers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span> <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;BM&quot;</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of markers present in table: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">asctb_table_markers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of markers present in table: 193
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">asctb_table_markers</span><span class="p">))</span>  <span class="c1"># Use array for shorter repr</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;ACSM2A&#39;, &#39;ACTA2&#39;, &#39;ADAMTS6&#39;, &#39;ADCY3&#39;, &#39;ADRA1A&#39;, &#39;ALDH1A2&#39;,
+       &#39;ALDOB&#39;, &#39;APOE&#39;, &#39;AQP1&#39;, &#39;AQP2&#39;, &#39;AQP3&#39;, &#39;AQP6&#39;, &#39;ATP1A1&#39;,
+       &#39;ATP6V0D2&#39;, &#39;C1QA&#39;, &#39;C7&#39;, &#39;CA2&#39;, &#39;CALB1&#39;, &#39;CASR&#39;, &#39;CCDC102B&#39;,
+       &#39;CCL4&#39;, &#39;CCL5&#39;, &#39;CD11c&#39;, &#39;CD14&#39;, &#39;CD163&#39;, &#39;CD1C&#39;, &#39;CD1E&#39;, &#39;CD20&#39;,
+       &#39;CD206&#39;, &#39;CD247&#39;, &#39;CD3&#39;, &#39;CD3D&#39;, &#39;CD3G&#39;, &#39;CD4&#39;, &#39;CD40LG&#39;, &#39;CD45&#39;,
+       &#39;CD68&#39;, &#39;CD79A&#39;, &#39;CD8&#39;, &#39;CD96&#39;, &#39;CDH1&#39;, &#39;CFH&#39;, &#39;CLCNKA&#39;, &#39;CLDN1&#39;,
+       &#39;CLDN3&#39;, &#39;CLEC9A&#39;, &#39;CLIC5&#39;, &#39;CLMP&#39;, &#39;COL16A1&#39;, &#39;COL1A1&#39;, &#39;COL1A2&#39;,
+       &#39;COL4A1&#39;, &#39;COL5A1&#39;, &#39;CPA3&#39;, &#39;CPE&#39;, &#39;CRB2&#39;, &#39;CRYAB&#39;, &#39;CSF2RA&#39;,
+       &#39;CSF3R&#39;, &#39;CUBN&#39;, &#39;DCN&#39;, &#39;DNASE1L3&#39;, &#39;EHD3&#39;, &#39;EMCN&#39;, &#39;FCER1A&#39;,
+       &#39;FCGR3A&#39;, &#39;FCGR3B&#39;, &#39;FCRL5&#39;, &#39;FLT1&#39;, &#39;FLT3&#39;, &#39;FOXP3&#39;, &#39;FXYD4&#39;,
+       &#39;Foxd1&#39;, &#39;GATA3&#39;, &#39;GATM&#39;, &#39;GNLY&#39;, &#39;GPM6A&#39;, &#39;GPX2&#39;, &#39;GZMA&#39;, &#39;HECW2&#39;,
+       &#39;HLA-DQA1&#39;, &#39;HLA-DRA&#39;, &#39;HLA-DRB1&#39;, &#39;HSD11B2&#39;, &#39;ID1&#39;, &#39;IGKC&#39;,
+       &#39;IL3RA&#39;, &#39;IL7R&#39;, &#39;INSRR&#39;, &#39;ITGA8&#39;, &#39;ITGAL&#39;, &#39;ITGAX&#39;, &#39;JAG1&#39;,
+       &#39;JCHAIN&#39;, &#39;KCNK2&#39;, &#39;KIT&#39;, &#39;KRT5&#39;, &#39;LDB3&#39;, &#39;LRP2&#39;, &#39;LUM&#39;, &#39;MCAM&#39;,
+       &#39;MCTP1&#39;, &#39;MMRN1&#39;, &#39;MOGAT1&#39;, &#39;MPO&#39;, &#39;MRC1&#39;, &#39;MS4A1&#39;, &#39;MS4A2&#39;,
+       &#39;MSR1&#39;, &#39;MYH11&#39;, &#39;MZB1&#39;, &#39;NCAM1&#39;, &#39;NKG7&#39;, &#39;NOS1&#39;, &#39;NPHS1&#39;, &#39;NPHS2&#39;,
+       &#39;NR2F2&#39;, &#39;NTNG1&#39;, &#39;NTRK1&#39;, &#39;NTRK3&#39;, &#39;NXPH2&#39;, &#39;PALMD&#39;, &#39;PDGFRB&#39;,
+       &#39;PECAM1&#39;, &#39;PIEZO2&#39;, &#39;PLAT&#39;, &#39;PLVAP&#39;, &#39;PODXL&#39;, &#39;POSTN&#39;, &#39;PRODH2&#39;,
+       &#39;PROX1&#39;, &#39;PTPRC&#39;, &#39;PTPRQ&#39;, &#39;RAMP3&#39;, &#39;RAP1GAP&#39;, &#39;REN&#39;, &#39;RGS6&#39;,
+       &#39;ROBO1&#39;, &#39;ROBO2&#39;, &#39;RUNX3&#39;, &#39;S100A8&#39;, &#39;S100A9&#39;, &#39;SALL3&#39;, &#39;SATB2&#39;,
+       &#39;SCN2A&#39;, &#39;SCNN1G&#39;, &#39;SERPINE2&#39;, &#39;SH3GL3&#39;, &#39;SLC12A1&#39;, &#39;SLC12A3&#39;,
+       &#39;SLC13A1&#39;, &#39;SLC13A3&#39;, &#39;SLC14A1&#39;, &#39;SLC14A2&#39;, &#39;SLC17A1&#39;, &#39;SLC22A6&#39;,
+       &#39;SLC22A7&#39;, &#39;SLC22A8&#39;, &#39;SLC26A4&#39;, &#39;SLC26A7&#39;, &#39;SLC34A1&#39;, &#39;SLC35F3&#39;,
+       &#39;SLC39A8&#39;, &#39;SLC44A5&#39;, &#39;SLC4A1&#39;, &#39;SLC4A11&#39;, &#39;SLC4A9&#39;, &#39;SLC5A11&#39;,
+       &#39;SLC5A12&#39;, &#39;SLC5A2&#39;, &#39;SLC8A1&#39;, &#39;SLC9A3&#39;, &#39;SMA&#39;, &#39;SOX17&#39;, &#39;SPP1&#39;,
+       &#39;SULF1&#39;, &#39;SYNPO2&#39;, &#39;SYT1&#39;, &#39;TACSTD2&#39;, &#39;TAGLN&#39;, &#39;TBX1&#39;, &#39;TLDC2&#39;,
+       &#39;TM4SF1&#39;, &#39;TNC&#39;, &#39;TP63&#39;, &#39;TRPM2&#39;, &#39;TRPM6&#39;, &#39;TRPV5&#39;, &#39;UMOD&#39;,
+       &#39;VCAM1&#39;, &#39;VIM&#39;, &#39;VSX2&#39;, &#39;ZEB2&#39;], dtype=&#39;&lt;U8&#39;)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>There are <span class="pasted-text">193</span> total markers in the ASCT+B table,
+and only <span class="pasted-text">12</span> in the actual multiplexed dataset.
+We’d like to map the dataset markers to those in the ASCT+B table, so that we
+can trace them back to the expected cell types (and anatomical structures).</p>
+<p>Unfortunately, the marker names in the datasets are not standardized.
+In practice, manually mapping marker names from the data to those in the table
+is the only option.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Markers with metadata - listed here to assist with manual mapping of marker</span>
+<span class="c1"># names</span>
+
+<span class="nb">sorted</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">&quot;metadata&quot;</span><span class="p">][</span><span class="s2">&quot;label&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span>
+    <span class="k">if</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;BM&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ACSM2A&#39;, &#39;acyl-CoA synthetase medium chain family member 2A&#39;),
+ (&#39;ACTA2&#39;, &#39;actin alpha 2, smooth muscle&#39;),
+ (&#39;ADAMTS6&#39;, &#39;ADAM metallopeptidase with thrombospondin type 1 motif 6&#39;),
+ (&#39;ADCY3&#39;, &#39;adenylate cyclase 3&#39;),
+ (&#39;ADRA1A&#39;, &#39;adrenoceptor alpha 1A&#39;),
+ (&#39;ALDH1A2&#39;, &#39;aldehyde dehydrogenase 1 family member A2&#39;),
+ (&#39;ALDOB&#39;, &#39;aldolase, fructose-bisphosphate B&#39;),
+ (&#39;APOE&#39;, &#39;apolipoprotein E&#39;),
+ (&#39;AQP1&#39;, &#39;aquaporin 1 (Colton blood group)&#39;),
+ (&#39;AQP2&#39;, &#39;aquaporin 2&#39;),
+ (&#39;AQP3&#39;, &#39;aquaporin 3 (Gill blood group)&#39;),
+ (&#39;AQP6&#39;, &#39;aquaporin 6&#39;),
+ (&#39;ATP1A1&#39;, &#39;Sodium/potassium-transporting ATPase subunit alpha-1&#39;),
+ (&#39;ATP6V0D2&#39;, &#39;ATPase H+ transporting V0 subunit d2&#39;),
+ (&#39;C1QA&#39;, &#39;complement C1q A chain&#39;),
+ (&#39;C7&#39;, &#39;complement C7&#39;),
+ (&#39;CA2&#39;, &#39;carbonic anhydrase 2&#39;),
+ (&#39;CALB1&#39;, &#39;calbindin 1&#39;),
+ (&#39;CASR&#39;, &#39;calcium sensing receptor&#39;),
+ (&#39;CCDC102B&#39;, &#39;coiled-coil domain containing 102B&#39;),
+ (&#39;CCL4&#39;, &#39;C-C motif chemokine ligand 4&#39;),
+ (&#39;CCL5&#39;, &#39;C-C motif chemokine ligand 5&#39;),
+ (&#39;CD11c&#39;, &#39;Integrin alpha-X&#39;),
+ (&#39;CD14&#39;, &#39;CD14 molecule&#39;),
+ (&#39;CD163&#39;, &#39;CD163 molecule&#39;),
+ (&#39;CD1C&#39;, &#39;CD1c molecule&#39;),
+ (&#39;CD1E&#39;, &#39;CD1e molecule&#39;),
+ (&#39;CD20&#39;, &#39;B-lymphocyte antigen CD20&#39;),
+ (&#39;CD206&#39;, &#39;Macrophage mannose receptor 1&#39;),
+ (&#39;CD247&#39;, &#39;CD247 molecule&#39;),
+ (&#39;CD3&#39;, &#39;T-cell surface glycoprotein CD3 delta chain&#39;),
+ (&#39;CD3D&#39;, &#39;CD3 delta subunit of T-cell receptor complex&#39;),
+ (&#39;CD3G&#39;, &#39;CD3 gamma subunit of T-cell receptor complex&#39;),
+ (&#39;CD4&#39;, &#39;T-cell surface glycoprotein CD4&#39;),
+ (&#39;CD40LG&#39;, &#39;CD40 ligand&#39;),
+ (&#39;CD45&#39;, &#39;Receptor-type tyrosine-protein phosphatase C&#39;),
+ (&#39;CD68&#39;, &#39;Macrosialin&#39;),
+ (&#39;CD79A&#39;, &#39;C-C motif chemokine ligand 4&#39;),
+ (&#39;CD8&#39;, &#39;T-cell surface glycoprotein CD8 alpha chain&#39;),
+ (&#39;CD8&#39;, &#39;T-cell surface glycoprotein CD8 alpha chain&#39;),
+ (&#39;CD96&#39;, &#39;CD96 molecule&#39;),
+ (&#39;CDH1&#39;, &#39;Cadherin-1&#39;),
+ (&#39;CFH&#39;, &#39;complement factor H&#39;),
+ (&#39;CLCNKA&#39;, &#39;chloride voltage-gated channel Ka&#39;),
+ (&#39;CLDN1&#39;, &#39;claudin 1&#39;),
+ (&#39;CLDN3&#39;, &#39;claudin 3&#39;),
+ (&#39;CLEC9A&#39;, &#39;C-type lectin domain containing 9A&#39;),
+ (&#39;CLIC5&#39;, &#39;chloride intracellular channel 5&#39;),
+ (&#39;CLMP&#39;, &#39;CXADR like membrane protein&#39;),
+ (&#39;COL16A1&#39;, &#39;collagen type XVI alpha 1 chain&#39;),
+ (&#39;COL1A1&#39;, &#39;collagen type I alpha 1 chain&#39;),
+ (&#39;COL1A2&#39;, &#39;collagen type I alpha 2 chain&#39;),
+ (&#39;COL4A1&#39;, &#39;Collagen alpha-1(IV) chain&#39;),
+ (&#39;COL5A1&#39;, &#39;collagen type V alpha 1 chain&#39;),
+ (&#39;CPA3&#39;, &#39;carboxypeptidase A3&#39;),
+ (&#39;CPE&#39;, &#39;carboxypeptidase E&#39;),
+ (&#39;CRB2&#39;, &#39;crumbs cell polarity complex component 2&#39;),
+ (&#39;CRYAB&#39;, &#39;crystallin alpha B&#39;),
+ (&#39;CSF2RA&#39;, &#39;colony stimulating factor 2 receptor subunit alpha&#39;),
+ (&#39;CSF3R&#39;, &#39;colony stimulating factor 3 receptor&#39;),
+ (&#39;CUBN&#39;, &#39;cubilin&#39;),
+ (&#39;DCN&#39;, &#39;decorin&#39;),
+ (&#39;DNASE1L3&#39;, &#39;deoxyribonuclease 1 like 3&#39;),
+ (&#39;EHD3&#39;, &#39;EH domain containing 3&#39;),
+ (&#39;EMCN&#39;, &#39;endomucin&#39;),
+ (&#39;FCER1A&#39;, &#39;Fc epsilon receptor Ia&#39;),
+ (&#39;FCGR3A&#39;, &#39;Fc gamma receptor IIIa&#39;),
+ (&#39;FCGR3B&#39;, &#39;Fc gamma receptor IIIb&#39;),
+ (&#39;FCRL5&#39;, &#39;Fc receptor like 5&#39;),
+ (&#39;FLT1&#39;, &#39;fms related receptor tyrosine kinase 1&#39;),
+ (&#39;FLT3&#39;, &#39;fms related receptor tyrosine kinase 3&#39;),
+ (&#39;FOXP3&#39;, &#39;Forkhead box protein P3&#39;),
+ (&#39;FOXP3&#39;, &#39;forkhead box P3&#39;),
+ (&#39;FXYD4&#39;, &#39;FXYD domain containing ion transport regulator 4&#39;),
+ (&#39;Foxd1&#39;, &#39;forkhead box D1&#39;),
+ (&#39;GATA3&#39;, &#39;GATA binding protein 3&#39;),
+ (&#39;GATA3&#39;, &#39;Trans-acting T-cell-specific transcription factor GATA-3&#39;),
+ (&#39;GATM&#39;, &#39;glycine amidinotransferase&#39;),
+ (&#39;GNLY&#39;, &#39;granulysin&#39;),
+ (&#39;GPM6A&#39;, &#39;glycoprotein M6A&#39;),
+ (&#39;GPX2&#39;, &#39;glutathione peroxidase 2&#39;),
+ (&#39;GZMA&#39;, &#39;granzyme A&#39;),
+ (&#39;HECW2&#39;, &#39;HECT, C2 and WW domain containing E3 ubiquitin protein ligase 2&#39;),
+ (&#39;HLA-DQA1&#39;, &#39;major histocompatibility complex, class II, DQ alpha 1&#39;),
+ (&#39;HLA-DRA&#39;, &#39;HLA class II histocompatibility antigen, DR alpha chain&#39;),
+ (&#39;HLA-DRA&#39;, &#39;major histocompatibility complex, class II, DR alpha&#39;),
+ (&#39;HLA-DRB1&#39;, &#39;major histocompatibility complex, class II, DR beta 1&#39;),
+ (&#39;HSD11B2&#39;, &#39;hydroxysteroid 11-beta dehydrogenase 2&#39;),
+ (&#39;ID1&#39;, &#39;inhibitor of DNA binding 1&#39;),
+ (&#39;IGKC&#39;, &#39;immunoglobulin kappa constant&#39;),
+ (&#39;IL3RA&#39;, &#39;interleukin 3 receptor subunit alpha&#39;),
+ (&#39;IL7R&#39;, &#39;interleukin 7 receptor&#39;),
+ (&#39;INSRR&#39;, &#39;insulin receptor related receptor&#39;),
+ (&#39;ITGA8&#39;, &#39;integrin subunit alpha 8&#39;),
+ (&#39;ITGAL&#39;, &#39;integrin subunit alpha L&#39;),
+ (&#39;ITGAX&#39;, &#39;integrin subunit alpha X&#39;),
+ (&#39;JAG1&#39;, &#39;jagged canonical Notch ligand 1&#39;),
+ (&#39;JCHAIN&#39;, &#39;joining chain of multimeric IgA and IgM&#39;),
+ (&#39;KCNK2&#39;, &#39;potassium two pore domain channel subfamily K member 2&#39;),
+ (&#39;KIT&#39;, &#39;KIT proto-oncogene, receptor tyrosine kinase&#39;),
+ (&#39;KRT5&#39;, &#39;keratin 5&#39;),
+ (&#39;LDB3&#39;, &#39;LIM domain binding 3&#39;),
+ (&#39;LRP2&#39;, &#39;LDL receptor related protein 2&#39;),
+ (&#39;LUM&#39;, &#39;lumican&#39;),
+ (&#39;MCAM&#39;, &#39;melanoma cell adhesion molecule&#39;),
+ (&#39;MCTP1&#39;, &#39;multiple C2 and transmembrane domain containing 1&#39;),
+ (&#39;MMRN1&#39;, &#39;multimerin 1&#39;),
+ (&#39;MOGAT1&#39;, &#39;monoacylglycerol O-acyltransferase 1&#39;),
+ (&#39;MPO&#39;, &#39;Myeloperoxidase&#39;),
+ (&#39;MRC1&#39;, &#39;Can also see T-helper cells, CNT and DCT ssubsegments&#39;),
+ (&#39;MS4A1&#39;, &#39;membrane spanning 4-domains A1&#39;),
+ (&#39;MS4A2&#39;, &#39;membrane spanning 4-domains A2&#39;),
+ (&#39;MSR1&#39;, &#39;macrophage scavenger receptor 1&#39;),
+ (&#39;MYH11&#39;, &#39;myosin heavy chain 11&#39;),
+ (&#39;MZB1&#39;, &#39;marginal zone B and B1 cell specific protein&#39;),
+ (&#39;NCAM1&#39;, &#39;neural cell adhesion molecule 1&#39;),
+ (&#39;NKG7&#39;, &#39;natural killer cell granule protein 7&#39;),
+ (&#39;NOS1&#39;, &#39;uromodulin&#39;),
+ (&#39;NPHS1&#39;, &#39;NPHS1 adhesion molecule, nephrin&#39;),
+ (&#39;NPHS2&#39;, &#39;NPHS2 stomatin family member, podocin&#39;),
+ (&#39;NR2F2&#39;, &#39;nuclear receptor subfamily 2 group F member 2&#39;),
+ (&#39;NTNG1&#39;, &#39;netrin G1&#39;),
+ (&#39;NTRK1&#39;, &#39;neurotrophic receptor tyrosine kinase 1&#39;),
+ (&#39;NTRK3&#39;, &#39;neurotrophic receptor tyrosine kinase 3&#39;),
+ (&#39;NXPH2&#39;, &#39;neurexophilin 2&#39;),
+ (&#39;PALMD&#39;, &#39;palmdelphin&#39;),
+ (&#39;PDGFRB&#39;, &#39;platelet derived growth factor receptor beta&#39;),
+ (&#39;PECAM1&#39;, &#39;platelet and endothelial cell adhesion molecule 1&#39;),
+ (&#39;PIEZO2&#39;, &#39;piezo type mechanosensitive ion channel component 2&#39;),
+ (&#39;PLAT&#39;, &#39;plasminogen activator, tissue type&#39;),
+ (&#39;PLVAP&#39;, &#39;plasmalemma vesicle associated protein&#39;),
+ (&#39;PODXL&#39;, &#39;podocalyxin like&#39;),
+ (&#39;POSTN&#39;, &#39;periostin&#39;),
+ (&#39;PRODH2&#39;, &#39;proline dehydrogenase 2&#39;),
+ (&#39;PROX1&#39;, &#39;prospero homeobox 1&#39;),
+ (&#39;PTPRC&#39;, &#39;Receptor-type tyrosine-protein phosphatase C\r&#39;),
+ (&#39;PTPRQ&#39;, &#39;protein tyrosine phosphatase receptor type Q&#39;),
+ (&#39;RAMP3&#39;, &#39;receptor activity modifying protein 3&#39;),
+ (&#39;RAP1GAP&#39;, &#39;RAP1 GTPase activating protein&#39;),
+ (&#39;REN&#39;, &#39;renin&#39;),
+ (&#39;RGS6&#39;, &#39;regulator of G protein signaling 6&#39;),
+ (&#39;ROBO1&#39;, &#39;roundabout guidance receptor 1&#39;),
+ (&#39;ROBO2&#39;, &#39;roundabout guidance receptor 1&#39;),
+ (&#39;RUNX3&#39;, &#39;RUNX family transcription factor 3&#39;),
+ (&#39;S100A8&#39;, &#39;S100 calcium binding protein A8&#39;),
+ (&#39;S100A9&#39;, &#39;S100 calcium binding protein A9&#39;),
+ (&#39;SALL3&#39;, &#39;spalt like transcription factor 3&#39;),
+ (&#39;SATB2&#39;, &#39;SATB homeobox 2&#39;),
+ (&#39;SCN2A&#39;, &#39;sodium voltage-gated channel alpha subunit 2&#39;),
+ (&#39;SCNN1G&#39;, &#39;sodium channel epithelial 1 subunit gamma&#39;),
+ (&#39;SERPINE2&#39;, &#39;serpin family E member 2&#39;),
+ (&#39;SH3GL3&#39;, &#39;SH3 domain containing GRB2 like 3, endophilin A3&#39;),
+ (&#39;SLC12A1&#39;, &#39;solute carrier family 12 member 1&#39;),
+ (&#39;SLC12A3&#39;, &#39;Solute carrier family 12 member 3&#39;),
+ (&#39;SLC12A3&#39;, &#39;solute carrier family 12 member 3&#39;),
+ (&#39;SLC13A1&#39;, &#39;solute carrier family 13 member 1&#39;),
+ (&#39;SLC13A3&#39;, &#39;solute carrier family 13 member 3&#39;),
+ (&#39;SLC14A1&#39;, &#39;solute carrier family 14 member 1 (Kidd blood group)&#39;),
+ (&#39;SLC14A2&#39;, &#39;solute carrier family 14 member 2&#39;),
+ (&#39;SLC17A1&#39;, &#39;solute carrier family 17 member 1&#39;),
+ (&#39;SLC22A6&#39;, &#39;solute carrier family 22 member 6&#39;),
+ (&#39;SLC22A7&#39;, &#39;solute carrier family 22 member 7&#39;),
+ (&#39;SLC22A8&#39;, &#39;solute carrier family 22 member 8&#39;),
+ (&#39;SLC26A4&#39;, &#39;solute carrier family 26 member 4&#39;),
+ (&#39;SLC26A7&#39;, &#39;solute carrier family 26 member 7&#39;),
+ (&#39;SLC34A1&#39;, &#39;solute carrier family 34 member 1&#39;),
+ (&#39;SLC35F3&#39;, &#39;solute carrier family 35 member F3&#39;),
+ (&#39;SLC39A8&#39;, &#39;solute carrier family 39 member 8&#39;),
+ (&#39;SLC44A5&#39;, &#39;solute carrier family 44 member 5&#39;),
+ (&#39;SLC4A1&#39;, &#39;solute carrier family 4 member 1 (Diego blood group)&#39;),
+ (&#39;SLC4A11&#39;, &#39;solute carrier family 4 member 11&#39;),
+ (&#39;SLC4A9&#39;, &#39;solute carrier family 4 member 9&#39;),
+ (&#39;SLC5A11&#39;, &#39;solute carrier family 5 member 11&#39;),
+ (&#39;SLC5A12&#39;, &#39;solute carrier family 5 member 12&#39;),
+ (&#39;SLC5A2&#39;, &#39;solute carrier family 5 member 2&#39;),
+ (&#39;SLC8A1&#39;, &#39;solute carrier family 8 member A1&#39;),
+ (&#39;SLC9A3&#39;, &#39;solute carrier family 9 member A3&#39;),
+ (&#39;SMA&#39;, &#39;Actin, aortic smooth muscle&#39;),
+ (&#39;SOX17&#39;, &#39;SRY-box transcription factor 17&#39;),
+ (&#39;SPP1&#39;, &#39;secreted phosphoprotein 1&#39;),
+ (&#39;SULF1&#39;, &#39;sulfatase 1&#39;),
+ (&#39;SYNPO2&#39;, &#39;synaptopodin 2&#39;),
+ (&#39;SYT1&#39;, &#39;synaptotagmin 1&#39;),
+ (&#39;TACSTD2&#39;, &#39;tumor associated calcium signal transducer 2&#39;),
+ (&#39;TAGLN&#39;, &#39;transgelin&#39;),
+ (&#39;TBX1&#39;, &#39;T-box transcription factor 1&#39;),
+ (&#39;TLDC2&#39;, &#39;TBC/LysM-associated domain containing 2&#39;),
+ (&#39;TM4SF1&#39;, &#39;transmembrane 4 L six family member 1&#39;),
+ (&#39;TNC&#39;, &#39;tenascin C&#39;),
+ (&#39;TP63&#39;, &#39;tumor protein p63&#39;),
+ (&#39;TRPM2&#39;, &#39;transient receptor potential cation channel subfamily M member 2&#39;),
+ (&#39;TRPM6&#39;, &#39;transient receptor potential cation channel subfamily M member 6&#39;),
+ (&#39;TRPV5&#39;, &#39;transient receptor potential cation channel subfamily V member 5&#39;),
+ (&#39;UMOD&#39;, &#39;uromodulin&#39;),
+ (&#39;VCAM1&#39;, &#39;vascular cell adhesion molecule 1&#39;),
+ (&#39;VIM&#39;, &#39;VIM&#39;),
+ (&#39;VSX2&#39;, &#39;visual system homeobox 2&#39;),
+ (&#39;ZEB2&#39;, &#39;zinc finger E-box binding homeobox 2&#39;)]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Here’s the mapping I was able to come up with (I’m no biologist) with the help
+of wikipedia + chatgpt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_to_asct_marker_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;AE1&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>  <span class="c1"># No candidate found</span>
+    <span class="s2">&quot;AQP1&quot;</span><span class="p">:</span> <span class="s2">&quot;AQP1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CALBINDIN&quot;</span><span class="p">:</span> <span class="s2">&quot;CALB1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD31&quot;</span><span class="p">:</span><span class="s2">&quot;None&quot;</span><span class="p">,</span>  <span class="c1"># CD31 is not in the exported ASCTB table (see below)</span>
+    <span class="s2">&quot;COLIV&quot;</span><span class="p">:</span> <span class="s1">&#39;COL4A1&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;NAKATPASE&quot;</span><span class="p">:</span> <span class="s1">&#39;ATP1A1&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;PCAD&quot;</span><span class="p">:</span> <span class="s1">&#39;CDH1&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;S6&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>  <span class="c1"># No candidate found in the table</span>
+    <span class="s2">&quot;SMA&quot;</span><span class="p">:</span> <span class="s2">&quot;ACTA2&quot;</span><span class="p">,</span>  <span class="c1"># The &quot;SMA&quot; in the table is &quot;aortic smooth muscle</span>
+    <span class="s2">&quot;VIMENTIN&quot;</span><span class="p">:</span> <span class="s2">&quot;VIM&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, in summary: there are <code class="docutils literal notranslate"><span class="pre">{glue:text}</span></code>{data_num_markers} present int he dataset,
+of which 2 are DAPI stains which are not relevant for cell-type determination.
+Of the remaining markers, 2 (<code class="docutils literal notranslate"><span class="pre">AE1</span></code> and <code class="docutils literal notranslate"><span class="pre">S6</span></code>) don’t have obvious candidates from
+the table (feedback welcome!)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CD31 is not present in the data from the ASCT+B exporter, which is odd. It <em>is</em>
+present in the published ASCT+B table. The discrepancy between these two data
+sources is explored futher below.</p>
+</div>
+<p>This leaves us with <code class="docutils literal notranslate"><span class="pre">7</span></code> channels of protein markers that may be relevant for
+cell-type determination.
+Even in the case where we assume each marker provides sufficient information to
+correctly identify all associated cell types, this leaves annotators with only
+a subset of all possible cell-types:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name_to_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]:</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="p">}</span>
+<span class="n">markers_in_asctb</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">data_to_asct_marker_mapping</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">&amp;</span> \
+                   <span class="p">{</span><span class="n">name</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">)}</span>
+<span class="n">all_ancestors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+    <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span>
+        <span class="n">nx</span><span class="o">.</span><span class="n">ancestors</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">name_to_id</span><span class="p">[</span><span class="n">marker</span><span class="p">])</span> <span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="n">markers_in_asctb</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">detectable</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">nbunch</span><span class="o">=</span><span class="n">all_ancestors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_summary</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="n">ntype</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">ntype</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;type&quot;</span><span class="p">)])</span>
+<span class="n">subset_summary</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">([</span><span class="n">ntype</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">ntype</span> <span class="ow">in</span> <span class="n">detectable</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">&quot;type&quot;</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total number of celltypes listed in ASCT+B table for kidney: </span><span class="si">{</span><span class="n">table_summary</span><span class="p">[</span><span class="s1">&#39;CT&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum detectable number of celltypes with marker panel: </span><span class="si">{</span><span class="n">subset_summary</span><span class="p">[</span><span class="s1">&#39;CT&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">sorted</span><span class="p">([</span><span class="n">ndata</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">ndata</span> <span class="ow">in</span> <span class="n">detectable</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="n">ndata</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;CT&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of celltypes listed in ASCT+B table for kidney: 61
+Maximum detectable number of celltypes with marker panel: 16
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ascending Thin Limb Cell&#39;,
+ &#39;Connecting Tubule Cell&#39;,
+ &#39;Descending Thin Limb Cell&#39;,
+ &#39;Descending Thin Limb Cell Type 2&#39;,
+ &#39;Distal Convoluted Tubule Cell&#39;,
+ &#39;Distal Convoluted Tubule Cell Type 2&#39;,
+ &#39;Fibroblast&#39;,
+ &#39;Glomerular Capillary Endothelial Cell&#39;,
+ &#39;Macula Densa cell&#39;,
+ &#39;Medullary Fibroblast&#39;,
+ &#39;Medullary Thick Ascending Limb Cell&#39;,
+ &#39;Myofibroblast&#39;,
+ &#39;Parietal Epithelial Cell&#39;,
+ &#39;Proximal Tubule Cell Epithelial Segment 3&#39;,
+ &#39;Vascular Smooth Muscle Cell&#39;,
+ &#39;Vascular Smooth Muscle Cell/Pericyte (general)&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="difference-between-asct-b-reporter-and-master-data-tables">
+<h2>Difference between ASCT+B reporter and master data tables<a class="headerlink" href="#difference-between-asct-b-reporter-and-master-data-tables" title="Permalink to this heading">#</a></h2>
+<p>The ASCT+B information differs significantly between the reporter and the “master”
+data tables.
+I assume that the reporter draws from all of the tables combined, so it’s not
+necessarily surprising that it has more information (i.e. more AS, CT, and BM
+nodes) than the master tables.
+However, though the master table contains fewer data, it also includes some
+which are absent from the summary provided by the reporter.
+For example, for the Kidney ASCT+B table, <code class="docutils literal notranslate"><span class="pre">CD31</span></code> appears as a biomarker in the
+master table but is not found in the data from the reporter.</p>
+<p>Since the master tables differ significantly from the reporter, it’s worthwhile
+to repeat the above analysis (i.e. determining cell-type subsets that
+correspond to available markers) using the master table as the ASCT+B reference.</p>
+<p>Start by loading the data…</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;Downloads/Kidney_v1.4 - Kidney_v1.4.csv&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>  <span class="c1"># All columns contained in the master table</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;AS/1&#39;,
+ &#39;AS/1/LABEL&#39;,
+ &#39;AS/1/ID&#39;,
+ &#39;AS/2&#39;,
+ &#39;AS/2/LABEL&#39;,
+ &#39;AS/2/ID&#39;,
+ &#39;AS/2/NOTES&#39;,
+ &#39;AS/3&#39;,
+ &#39;AS/3/LABEL&#39;,
+ &#39;AS/3/ID&#39;,
+ &#39;AS/3/NOTES&#39;,
+ &#39;AS/4&#39;,
+ &#39;AS/4/LABEL&#39;,
+ &#39;AS/4/ID&#39;,
+ &#39;AS/5&#39;,
+ &#39;AS/5/LABEL&#39;,
+ &#39;AS/5/ID&#39;,
+ &#39;AS/5/NOTES&#39;,
+ &#39;AS/6&#39;,
+ &#39;AS/6/LABEL&#39;,
+ &#39;AS/6/ID&#39;,
+ &#39;CT/1&#39;,
+ &#39;CT/1/LABEL&#39;,
+ &#39;CT/1/ID&#39;,
+ &#39;CT/1/ABBR&#39;,
+ &#39;CT/1/NOTES&#39;,
+ &#39;CT/2&#39;,
+ &#39;CT/2/LABEL&#39;,
+ &#39;CT/2/ID&#39;,
+ &#39;CT/2/ABBR&#39;,
+ &#39;CT/2/NOTES&#39;,
+ &#39;BGene/1&#39;,
+ &#39;BGene/1/LABEL&#39;,
+ &#39;BGene/1/ID&#39;,
+ &#39;BGene/1/NOTES&#39;,
+ &#39;BGene/2&#39;,
+ &#39;BGene/2/LABEL&#39;,
+ &#39;BGene/2/ID&#39;,
+ &#39;BGene/2/NOTES&#39;,
+ &#39;BGene/3&#39;,
+ &#39;BGene/3/LABEL&#39;,
+ &#39;BGene/3/ID&#39;,
+ &#39;BGene/3/NOTES&#39;,
+ &#39;BGene/4&#39;,
+ &#39;BGene/4/LABEL&#39;,
+ &#39;BGene/4/ID&#39;,
+ &#39;BGene/4/NOTES&#39;,
+ &#39;BGene/5&#39;,
+ &#39;BGene/5/LABEL&#39;,
+ &#39;BGene/5/ID&#39;,
+ &#39;BGene/5/NOTES&#39;,
+ &#39;BGene/6&#39;,
+ &#39;BGene/6/LABEL&#39;,
+ &#39;BGene/6/ID&#39;,
+ &#39;BGene/6/NOTES&#39;,
+ &#39;BGene/7&#39;,
+ &#39;BGene/7/LABEL&#39;,
+ &#39;BGene/7/ID&#39;,
+ &#39;BGene/7/NOTES&#39;,
+ &#39;BGene/8&#39;,
+ &#39;BGene/8/LABEL&#39;,
+ &#39;BGene/8/ID&#39;,
+ &#39;BGene/8/NOTES&#39;,
+ &#39;BProtein/1&#39;,
+ &#39;BProtein/1/LABEL&#39;,
+ &#39;BProtein/1/ID&#39;,
+ &#39;BProtein/1/Notes&#39;,
+ &#39;BProtein/2&#39;,
+ &#39;BProtein/2/LABEL&#39;,
+ &#39;BProtein/2/ID&#39;,
+ &#39;BProtein/2/Notes&#39;,
+ &#39;BProtein/3&#39;,
+ &#39;BProtein/3/LABEL&#39;,
+ &#39;BProtein/3/ID&#39;,
+ &#39;BProtein/3/Notes&#39;,
+ &#39;BProtein/4&#39;,
+ &#39;BProtein/4/LABEL&#39;,
+ &#39;BProtein/4/ID&#39;,
+ &#39;BProtein/4/Notes&#39;,
+ &#39;FTU/1&#39;,
+ &#39;FTU/1/LABEL&#39;,
+ &#39;FTU/1/ID&#39;,
+ &#39;FTU/1/NOTES&#39;,
+ &#39;FTU/2&#39;,
+ &#39;FTU/2/LABEL&#39;,
+ &#39;FTU/2/ID&#39;,
+ &#39;FTU/2/ID/Notes&#39;,
+ &#39;REF/1&#39;,
+ &#39;REF/1/DOI&#39;,
+ &#39;REF/1/NOTES&#39;,
+ &#39;REF/2&#39;,
+ &#39;REF/2/DOI&#39;,
+ &#39;REF/2/NOTES&#39;,
+ &#39;REF/3&#39;,
+ &#39;REF/3/DOI&#39;,
+ &#39;REF/3/NOTES&#39;,
+ &#39;REF/4&#39;,
+ &#39;REF/4/DOI&#39;,
+ &#39;REF/4/NOTES&#39;,
+ &#39;REF/5&#39;,
+ &#39;REF/5/DOI&#39;,
+ &#39;REF/5/NOTES&#39;,
+ &#39;REF/6&#39;,
+ &#39;REF/6/DOI&#39;,
+ &#39;REF/6/NOTES&#39;]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>… and extracting all of the protein markers from the table</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_markers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">all_markers</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;BProtein/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then visually inspect the subsets of cells that correspond to each
+marker included in the master table:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">all_markers</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;===================</span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">================&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;CT/1&quot;</span><span class="p">,</span> <span class="s2">&quot;CT/2&quot;</span><span class="p">]</span> <span class="o">+</span> \
+        <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;BProtein/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;BProtein/1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===================CD206================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================CD3================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================GATA3================
+                      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+30  Connecting Tubule Cell  NaN      GATA3       CDH1        NaN        NaN
+35    Collecting Duct Cell  NaN      GATA3       CDH1       K2C8        NaN
+
+
+
+===================AQP1================
+                                         CT/1 CT/2 BProtein/1 BProtein/2  \
+5            Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
+12      Glomerular Capillary Endothelial Cell  NaN       AQP1        NaN   
+17  Proximal Tubule Cell Epithelial Segment 3  NaN       AQP1        NaN   
+20           Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
+
+   BProtein/3 BProtein/4  
+5         NaN        NaN  
+12        NaN        NaN  
+17        NaN        NaN  
+20        NaN        NaN  
+
+
+
+===================LRP2================
+                               CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+14  Proximal Tubule Epithelial Cell  NaN       LRP2        NaN        NaN   
+
+   BProtein/4  
+14        NaN  
+
+
+
+===================CD68================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================FOXP3================
+                 CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+72  regulatory T cell  NaN      FOXP3        NaN        NaN        NaN
+
+
+
+===================OSTP================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================UMOD================
+                                     CT/1 CT/2 BProtein/1 BProtein/2  \
+6  Descending Vasa Recta Endothelial Cell  NaN       UMOD        NaN   
+
+  BProtein/3 BProtein/4  
+6        NaN        NaN  
+
+
+
+===================PODXL================
+        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+2   Podocyte  NaN      PODXL        NaN        NaN        NaN
+8   Podocyte  NaN      PODXL        NaN        NaN        NaN
+11  Podocyte  NaN      PODXL        NaN        NaN        NaN
+
+
+
+===================CD20================
+      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+73  B cell  NaN       CD20    HLA-DRA        NaN        NaN
+
+
+
+===================CD8================
+                CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+70            T Cell  NaN        CD8        CD3        CD4        NaN
+71  Cytotoxic T Cell  NaN        CD8        CD3        NaN        NaN
+
+
+
+===================AQP2================
+                                              CT/1 CT/2 BProtein/1 BProtein/2  \
+3          Cortical Collecting Duct Principal Cell  NaN       AQP2        NaN   
+7             Inner Medullary Collecting Duct Cell  NaN       AQP2        NaN   
+31                Connecting Tubule Principal Cell  NaN       AQP2        NaN   
+36                  Collecting Duct Principal Cell  NaN       AQP2        NaN   
+37         Cortical Collecting Duct Principal Cell  NaN       AQP2        NaN   
+38  Outer Medullary Collecting Duct Principal Cell  NaN       AQP2        NaN   
+39            Inner Medullary Collecting Duct Cell  NaN       AQP2        NaN   
+
+   BProtein/3 BProtein/4  
+3         NaN        NaN  
+7         NaN        NaN  
+31        NaN        NaN  
+36        NaN        NaN  
+37        NaN        NaN  
+38        NaN        NaN  
+39        NaN        NaN  
+
+
+
+===================ATP1A1================
+                                   CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+23            Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
+24   Cortical Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
+25  Medullary Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
+26                    Macula Densa cell  NaN     ATP1A1       CDH1        NaN   
+
+   BProtein/4  
+23        NaN  
+24        NaN  
+25        NaN  
+26        NaN  
+
+
+
+===================CD31================
+                                      CT/1 CT/2 BProtein/1 BProtein/2  \
+47                        Endothelial Cell  NaN       CD31        NaN   
+48     Afferent Arteriole Endothelial Cell  NaN       CD31        NaN   
+49     Efferent Arteriole Endothelial cell  NaN       CD31        NaN   
+50  Peritubular Capillary Endothelial Cell  NaN       CD31        NaN   
+51  Descending Vasa Recta Endothelial Cell  NaN       CD31        NaN   
+52   Ascending Vasa Recta Endothelial Cell  NaN       CD31        NaN   
+53              Lymphatic Endothelial Cell  NaN       CD31        NaN   
+
+   BProtein/3 BProtein/4  
+47        NaN        NaN  
+48        NaN        NaN  
+49        NaN        NaN  
+50        NaN        NaN  
+51        NaN        NaN  
+52        NaN        NaN  
+53        NaN        NaN  
+
+
+
+===================K2C8================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================CD45================
+         CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+60  Leukocyte  NaN       CD45        NaN        NaN        NaN
+
+
+
+===================VIM================
+                           CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+10     Parietal Epithelial Cell  NaN        VIM        NaN        NaN   
+18    Descending Thin Limb Cell  NaN        VIM       OSTP       CDH1   
+55  Vascular Smooth Muscle Cell  NaN        VIM        SMA        NaN   
+57                   Fibroblast  NaN        VIM     COL4A1        NaN   
+
+   BProtein/4  
+10        NaN  
+18        NaN  
+55        NaN  
+57        NaN  
+
+
+
+===================CDH1================
+                        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+22  Ascending Thin Limb Cell  NaN       CDH1        NaN        NaN        NaN
+
+
+
+===================SLC12A3================
+                                    CT/1 CT/2 BProtein/1 BProtein/2  \
+27         Distal Convoluted Tubule Cell  NaN    SLC12A3     ATP1A1   
+28  Distal Convoluted Tubule Cell Type 1  NaN    SLC12A3        NaN   
+29  Distal Convoluted Tubule Cell Type 2  NaN    SLC12A3        NaN   
+
+   BProtein/3 BProtein/4  
+27       CDH1        NaN  
+28        NaN        NaN  
+29        NaN        NaN  
+
+
+
+===================HLA-DRA================
+                        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+62    non Classical Monocyte  NaN    HLA-DRA        NaN        NaN        NaN
+65  Dendritic Cell (general)  NaN    HLA-DRA        NaN        NaN        NaN
+68                  Monocyte  NaN    HLA-DRA        NaN        NaN        NaN
+
+
+
+===================MPO================
+          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+75  Neutrophil  NaN        MPO        NaN        NaN        NaN
+
+
+
+===================COL4A1================
+                    CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+58  Medullary Fibroblast  NaN     COL4A1        NaN        NaN        NaN
+59         Myofibroblast  NaN     COL4A1        SMA        NaN        NaN
+
+
+
+===================SMA================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================CD4================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================CD11c================
+                          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+61               M2-Macrophage  NaN      CD11c      CD206       CD68   
+66  Dendritic Cell (classical)  NaN      CD11c        NaN        NaN   
+
+   BProtein/4  
+61    HLA-DRA  
+66        NaN  
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Similar to the reporter data, there are roughly 60-70 cell types in the master
+table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of unique primary cell types: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CT/1&#39;</span><span class="p">]))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of unique primary cell types: 68
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can perform the same analysis on these data as was done on the reporter
+data to get a rough estimate of the greatest number of cell types we’d expect
+to be able to distinguish given the marker panel of the portal data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create graph from tabular data</span>
+<span class="c1"># NOTE: only focusing on primary protein markers here</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">all_markers</span><span class="p">:</span>
+    <span class="n">celltypes</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;CT/1&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;BProtein/1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ct</span> <span class="ow">in</span> <span class="n">celltypes</span><span class="p">:</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># Another manual mapping of non-standard marker names from the data to those</span>
+<span class="c1"># in the ASCT+B tables</span>
+<span class="n">data_to_asct_marker_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;AE1&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AQP1&quot;</span><span class="p">:</span> <span class="s2">&quot;AQP1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CALBINDIN&quot;</span><span class="p">:</span> <span class="s2">&quot;CALB1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CD31&quot;</span><span class="p">:</span><span class="s2">&quot;CD31&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;COLIV&quot;</span><span class="p">:</span> <span class="s1">&#39;COL4A1&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;NAKATPASE&quot;</span><span class="p">:</span> <span class="s1">&#39;ATP1A1&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;PCAD&quot;</span><span class="p">:</span> <span class="s1">&#39;CDH1&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;S6&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SMA&quot;</span><span class="p">:</span> <span class="s2">&quot;SMA&quot;</span><span class="p">,</span>  <span class="c1"># Is this SMA different than the reporter SMA?</span>
+    <span class="s2">&quot;VIMENTIN&quot;</span><span class="p">:</span> <span class="s2">&quot;VIM&quot;</span>
+<span class="p">}</span>
+
+<span class="n">markers_in_asctb</span> <span class="o">=</span> <span class="n">all_markers</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">data_to_asct_marker_mapping</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">all_ancestors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+    <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">ancestors</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">markers_in_asctb</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">all_nodes</span> <span class="o">=</span> <span class="n">all_ancestors</span> <span class="o">|</span> <span class="n">markers_in_asctb</span>
+
+<span class="c1"># Visualize subgraph comprising the data marker panel intersection with the</span>
+<span class="c1"># ASCT+B master table markers</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">all_nodes</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">multipartite_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">subset_key</span><span class="o">=</span><span class="s2">&quot;layer&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">));</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">min_source_margin</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">min_target_margin</span><span class="o">=</span><span class="mi">50</span><span class="p">);</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+
+<span class="c1"># Prettify</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4bfe21585c953267b5eadf205618ecd853b9c6928d4f001909f40ccf531516f4.png" src="_images/4bfe21585c953267b5eadf205618ecd853b9c6928d4f001909f40ccf531516f4.png" />
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-annotation">Data annotation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-kidney-data">Example: Kidney data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-asct-b-reporter-and-master-data-tables">Difference between ASCT+B reporter and master data tables</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/index.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, rossbar.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
