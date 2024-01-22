@@ -29,7 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -597,7 +597,7 @@ is the only option.</p>
 </details>
 </div>
 <p>Here’s the mapping I was able to come up with (I’m no biologist) with the help
-of wikipedia + chatgpt:</p>
+of wikipedia + the metadata from the cell above:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_to_asct_marker_mapping</span> <span class="o">=</span> <span class="p">{</span>
@@ -616,7 +616,7 @@ of wikipedia + chatgpt:</p>
 </div>
 </div>
 </div>
-<p>So, in summary: there are <code class="docutils literal notranslate"><span class="pre">{glue:text}</span></code>{data_num_markers} present int he dataset,
+<p>So, in summary: there are <span class="pasted-text">12</span> present int he dataset,
 of which 2 are DAPI stains which are not relevant for cell-type determination.
 Of the remaining markers, 2 (<code class="docutils literal notranslate"><span class="pre">AE1</span></code> and <code class="docutils literal notranslate"><span class="pre">S6</span></code>) don’t have obvious candidates from
 the table (feedback welcome!)</p>
@@ -626,8 +626,8 @@ the table (feedback welcome!)</p>
 present in the published ASCT+B table. The discrepancy between these two data
 sources is explored futher below.</p>
 </div>
-<p>This leaves us with <code class="docutils literal notranslate"><span class="pre">7</span></code> channels of protein markers that may be relevant for
-cell-type determination.
+<p>This leaves us with <span class="pasted-text">7</span> channels of protein markers
+that may be relevant for cell-type determination.
 Even in the case where we assume each marker provides sufficient information to
 correctly identify all associated cell types, this leaves annotators with only
 a subset of all possible cell-types:</p>
@@ -853,134 +853,32 @@ marker included in the master table:</p>
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===================CD206================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===================CDH1================
+                        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+22  Ascending Thin Limb Cell  NaN       CDH1        NaN        NaN        NaN
 
 
 
-===================CD3================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
-
-
-
-===================GATA3================
-                      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-30  Connecting Tubule Cell  NaN      GATA3       CDH1        NaN        NaN
-35    Collecting Duct Cell  NaN      GATA3       CDH1       K2C8        NaN
-
-
-
-===================AQP1================
-                                         CT/1 CT/2 BProtein/1 BProtein/2  \
-5            Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
-12      Glomerular Capillary Endothelial Cell  NaN       AQP1        NaN   
-17  Proximal Tubule Cell Epithelial Segment 3  NaN       AQP1        NaN   
-20           Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
-
-   BProtein/3 BProtein/4  
-5         NaN        NaN  
-12        NaN        NaN  
-17        NaN        NaN  
-20        NaN        NaN  
-
-
-
-===================LRP2================
-                               CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
-14  Proximal Tubule Epithelial Cell  NaN       LRP2        NaN        NaN   
+===================CD11c================
+                          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+61               M2-Macrophage  NaN      CD11c      CD206       CD68   
+66  Dendritic Cell (classical)  NaN      CD11c        NaN        NaN   
 
    BProtein/4  
-14        NaN  
+61    HLA-DRA  
+66        NaN  
 
 
 
-===================CD68================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
+===================MPO================
+          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+75  Neutrophil  NaN        MPO        NaN        NaN        NaN
 
 
 
-===================FOXP3================
-                 CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-72  regulatory T cell  NaN      FOXP3        NaN        NaN        NaN
-
-
-
-===================OSTP================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
-
-
-
-===================UMOD================
-                                     CT/1 CT/2 BProtein/1 BProtein/2  \
-6  Descending Vasa Recta Endothelial Cell  NaN       UMOD        NaN   
-
-  BProtein/3 BProtein/4  
-6        NaN        NaN  
-
-
-
-===================PODXL================
-        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-2   Podocyte  NaN      PODXL        NaN        NaN        NaN
-8   Podocyte  NaN      PODXL        NaN        NaN        NaN
-11  Podocyte  NaN      PODXL        NaN        NaN        NaN
-
-
-
-===================CD20================
-      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-73  B cell  NaN       CD20    HLA-DRA        NaN        NaN
-
-
-
-===================CD8================
-                CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-70            T Cell  NaN        CD8        CD3        CD4        NaN
-71  Cytotoxic T Cell  NaN        CD8        CD3        NaN        NaN
-
-
-
-===================AQP2================
-                                              CT/1 CT/2 BProtein/1 BProtein/2  \
-3          Cortical Collecting Duct Principal Cell  NaN       AQP2        NaN   
-7             Inner Medullary Collecting Duct Cell  NaN       AQP2        NaN   
-31                Connecting Tubule Principal Cell  NaN       AQP2        NaN   
-36                  Collecting Duct Principal Cell  NaN       AQP2        NaN   
-37         Cortical Collecting Duct Principal Cell  NaN       AQP2        NaN   
-38  Outer Medullary Collecting Duct Principal Cell  NaN       AQP2        NaN   
-39            Inner Medullary Collecting Duct Cell  NaN       AQP2        NaN   
-
-   BProtein/3 BProtein/4  
-3         NaN        NaN  
-7         NaN        NaN  
-31        NaN        NaN  
-36        NaN        NaN  
-37        NaN        NaN  
-38        NaN        NaN  
-39        NaN        NaN  
-
-
-
-===================ATP1A1================
-                                   CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
-23            Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
-24   Cortical Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
-25  Medullary Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
-26                    Macula Densa cell  NaN     ATP1A1       CDH1        NaN   
-
-   BProtein/4  
-23        NaN  
-24        NaN  
-25        NaN  
-26        NaN  
+===================CD45================
+         CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+60  Leukocyte  NaN       CD45        NaN        NaN        NaN
 
 
 
@@ -1005,37 +903,66 @@ Index: []
 
 
 
-===================K2C8================
+===================PODXL================
+        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+2   Podocyte  NaN      PODXL        NaN        NaN        NaN
+8   Podocyte  NaN      PODXL        NaN        NaN        NaN
+11  Podocyte  NaN      PODXL        NaN        NaN        NaN
+
+
+
+===================CD20================
+      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+73  B cell  NaN       CD20    HLA-DRA        NaN        NaN
+
+
+
+===================FOXP3================
+                 CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+72  regulatory T cell  NaN      FOXP3        NaN        NaN        NaN
+
+
+
+===================SMA================
 Empty DataFrame
 Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
 Index: []
 
 
 
-===================CD45================
-         CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-60  Leukocyte  NaN       CD45        NaN        NaN        NaN
+===================AQP2================
+                                              CT/1 CT/2 BProtein/1 BProtein/2  \
+3          Cortical Collecting Duct Principal Cell  NaN       AQP2        NaN   
+7             Inner Medullary Collecting Duct Cell  NaN       AQP2        NaN   
+31                Connecting Tubule Principal Cell  NaN       AQP2        NaN   
+36                  Collecting Duct Principal Cell  NaN       AQP2        NaN   
+37         Cortical Collecting Duct Principal Cell  NaN       AQP2        NaN   
+38  Outer Medullary Collecting Duct Principal Cell  NaN       AQP2        NaN   
+39            Inner Medullary Collecting Duct Cell  NaN       AQP2        NaN   
+
+   BProtein/3 BProtein/4  
+3         NaN        NaN  
+7         NaN        NaN  
+31        NaN        NaN  
+36        NaN        NaN  
+37        NaN        NaN  
+38        NaN        NaN  
+39        NaN        NaN  
 
 
 
-===================VIM================
-                           CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
-10     Parietal Epithelial Cell  NaN        VIM        NaN        NaN   
-18    Descending Thin Limb Cell  NaN        VIM       OSTP       CDH1   
-55  Vascular Smooth Muscle Cell  NaN        VIM        SMA        NaN   
-57                   Fibroblast  NaN        VIM     COL4A1        NaN   
-
-   BProtein/4  
-10        NaN  
-18        NaN  
-55        NaN  
-57        NaN  
+===================CD8================
+                CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+70            T Cell  NaN        CD8        CD3        CD4        NaN
+71  Cytotoxic T Cell  NaN        CD8        CD3        NaN        NaN
 
 
 
-===================CDH1================
+===================HLA-DRA================
                         CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-22  Ascending Thin Limb Cell  NaN       CDH1        NaN        NaN        NaN
+62    non Classical Monocyte  NaN    HLA-DRA        NaN        NaN        NaN
+65  Dendritic Cell (general)  NaN    HLA-DRA        NaN        NaN        NaN
+68                  Monocyte  NaN    HLA-DRA        NaN        NaN        NaN
 
 
 
@@ -1052,17 +979,25 @@ Index: []
 
 
 
-===================HLA-DRA================
-                        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-62    non Classical Monocyte  NaN    HLA-DRA        NaN        NaN        NaN
-65  Dendritic Cell (general)  NaN    HLA-DRA        NaN        NaN        NaN
-68                  Monocyte  NaN    HLA-DRA        NaN        NaN        NaN
+===================AQP1================
+                                         CT/1 CT/2 BProtein/1 BProtein/2  \
+5            Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
+12      Glomerular Capillary Endothelial Cell  NaN       AQP1        NaN   
+17  Proximal Tubule Cell Epithelial Segment 3  NaN       AQP1        NaN   
+20           Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
+
+   BProtein/3 BProtein/4  
+5         NaN        NaN  
+12        NaN        NaN  
+17        NaN        NaN  
+20        NaN        NaN  
 
 
 
-===================MPO================
-          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-75  Neutrophil  NaN        MPO        NaN        NaN        NaN
+===================CD206================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
 
 
 
@@ -1073,7 +1008,68 @@ Index: []
 
 
 
-===================SMA================
+===================ATP1A1================
+                                   CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+23            Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
+24   Cortical Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
+25  Medullary Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
+26                    Macula Densa cell  NaN     ATP1A1       CDH1        NaN   
+
+   BProtein/4  
+23        NaN  
+24        NaN  
+25        NaN  
+26        NaN  
+
+
+
+===================LRP2================
+                               CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+14  Proximal Tubule Epithelial Cell  NaN       LRP2        NaN        NaN   
+
+   BProtein/4  
+14        NaN  
+
+
+
+===================UMOD================
+                                     CT/1 CT/2 BProtein/1 BProtein/2  \
+6  Descending Vasa Recta Endothelial Cell  NaN       UMOD        NaN   
+
+  BProtein/3 BProtein/4  
+6        NaN        NaN  
+
+
+
+===================GATA3================
+                      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+30  Connecting Tubule Cell  NaN      GATA3       CDH1        NaN        NaN
+35    Collecting Duct Cell  NaN      GATA3       CDH1       K2C8        NaN
+
+
+
+===================OSTP================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================CD68================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================CD3================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================K2C8================
 Empty DataFrame
 Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
 Index: []
@@ -1087,14 +1083,18 @@ Index: []
 
 
 
-===================CD11c================
-                          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
-61               M2-Macrophage  NaN      CD11c      CD206       CD68   
-66  Dendritic Cell (classical)  NaN      CD11c        NaN        NaN   
+===================VIM================
+                           CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+10     Parietal Epithelial Cell  NaN        VIM        NaN        NaN   
+18    Descending Thin Limb Cell  NaN        VIM       OSTP       CDH1   
+55  Vascular Smooth Muscle Cell  NaN        VIM        SMA        NaN   
+57                   Fibroblast  NaN        VIM     COL4A1        NaN   
 
    BProtein/4  
-61    HLA-DRA  
-66        NaN  
+10        NaN  
+18        NaN  
+55        NaN  
+57        NaN  
 </pre></div>
 </div>
 </div>
@@ -1165,7 +1165,7 @@ to be able to distinguish given the marker panel of the portal data.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4bfe21585c953267b5eadf205618ecd853b9c6928d4f001909f40ccf531516f4.png" src="_images/4bfe21585c953267b5eadf205618ecd853b9c6928d4f001909f40ccf531516f4.png" />
+<img alt="_images/4ed98301964e99d78979ffcbab1df67c62ed59ec84c295329a6c1cc4c2b9000e.png" src="_images/4ed98301964e99d78979ffcbab1df67c62ed59ec84c295329a6c1cc4c2b9000e.png" />
 </div>
 </div>
 </section>
