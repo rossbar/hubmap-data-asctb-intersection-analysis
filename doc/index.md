@@ -60,6 +60,7 @@ from pathlib import Path
 from collections import Counter
 import itertools
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 import networkx as nx
 import json
@@ -175,4 +176,109 @@ subset_summary = Counter([ntype for _, ntype in detectable.nodes(data="type")])
 print(f"Total number of celltypes listed in ASCT+B table for kidney: {table_summary['CT']}")
 print(f"Maximum detectable number of celltypes with marker panel: {subset_summary['CT']}")
 sorted([ndata["name"] for _, ndata in detectable.nodes(data=True) if ndata["type"] == "CT"])
+```
+
+## Difference between ASCT+B reporter and master data tables
+
+The ASCT+B information differs significantly between the reporter and the "master"
+data tables.
+I assume that the reporter draws from all of the tables combined, so it's not
+necessarily surprising that it has more information (i.e. more AS, CT, and BM
+nodes) than the master tables.
+However, though the master table contains fewer data, it also includes some
+which are absent from the summary provided by the reporter.
+For example, for the Kidney ASCT+B table, `CD31` appears as a biomarker in the
+master table but is not found in the data from the reporter.
+
+Since the master tables differ significantly from the reporter, it's worthwhile
+to repeat the above analysis (i.e. determining cell-type subsets that
+correspond to available markers) using the master table as the ASCT+B reference.
+
+Start by loading the data...
+
+```{code-cell}
+:tags: [hide-output]
+
+fname = Path.home() / "Downloads/Kidney_v1.4 - Kidney_v1.4.csv"
+data = pd.read_csv(fname, skiprows=10)
+list(data.columns)  # All columns contained in the master table
+```
+
+... and extracting all of the protein markers from the table
+
+```{code-cell}
+all_markers = set()
+for i in range(1, 5):
+    all_markers |= set(data[f"BProtein/{i}"].dropna())
+```
+
+We can then visually inspect the subsets of cells that correspond to each
+marker included in the master table:
+
+```{code-cell}
+:tags: [hide-output]
+
+for m in all_markers:
+    print(f"==================={m}================")
+    print(
+        data[["CT/1", "CT/2"] + \
+        [f"BProtein/{i}" for i in range(1, 5)]][data["BProtein/1"] == m]
+    )
+    print("\n\n")
+```
+
+Similar to the reporter data, there are roughly 60-70 cell types in the master
+table:
+
+```{code-cell}
+print(f"Number of unique primary cell types: {len(np.unique(data['CT/1']))}")
+```
+
+We can perform the same analysis on these data as was done on the reporter
+data to get a rough estimate of the greatest number of cell types we'd expect
+to be able to distinguish given the marker panel of the portal data.
+
+```{code-cell}
+# Create graph from tabular data
+# NOTE: only focusing on primary protein markers here
+G = nx.DiGraph()
+for m in all_markers:
+    celltypes = data["CT/1"][data["BProtein/1"] == m].dropna()
+    G.add_node(m, layer=1)
+    for ct in celltypes:
+        G.add_node(ct, layer=0)
+        G.add_edge(ct, m)
+
+# Another manual mapping of non-standard marker names from the data to those
+# in the ASCT+B tables
+data_to_asct_marker_mapping = {
+    "AE1": "None",
+    "AQP1": "AQP1",
+    "CALBINDIN": "CALB1",
+    "CD31":"CD31",
+    "COLIV": 'COL4A1',
+    "NAKATPASE": 'ATP1A1',
+    "PCAD": 'CDH1',
+    "S6": "None",
+    "SMA": "SMA",  # Is this SMA different than the reporter SMA?
+    "VIMENTIN": "VIM"
+}
+
+markers_in_asctb = all_markers & set(data_to_asct_marker_mapping.values())
+all_ancestors = set(
+    itertools.chain.from_iterable(nx.ancestors(G, source=m) for m in markers_in_asctb)
+)
+all_nodes = all_ancestors | markers_in_asctb
+
+# Visualize subgraph comprising the data marker panel intersection with the
+# ASCT+B master table markers
+H = G.subgraph(all_nodes)
+pos = nx.multipartite_layout(G, subset_key="layer")
+fig, ax = plt.subplots(figsize=(12, 9));
+nx.draw_networkx_edges(H, pos=pos, ax=ax, min_source_margin=100, min_target_margin=50);
+nx.draw_networkx_labels(H, pos=pos, ax=ax);
+
+# Prettify
+fig.tight_layout()
+ax.set_xlim(ax.get_xlim() * np.array([1.2, 1]));
 ```
