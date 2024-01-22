@@ -123,7 +123,7 @@ sorted(
 ```
 
 Here's the mapping I was able to come up with (I'm no biologist) with the help
-of wikipedia + chatgpt:
+of wikipedia + the metadata from the cell above:
 
 ```{code-cell}
 data_to_asct_marker_mapping = {
@@ -140,7 +140,7 @@ data_to_asct_marker_mapping = {
 }
 ```
 
-So, in summary: there are `{glue:text}`{data_num_markers} present int he dataset,
+So, in summary: there are {glue:text}`data_num_markers` present int he dataset,
 of which 2 are DAPI stains which are not relevant for cell-type determination.
 Of the remaining markers, 2 (`AE1` and `S6`) don't have obvious candidates from
 the table (feedback welcome!)
@@ -151,8 +151,15 @@ present in the published ASCT+B table. The discrepancy between these two data
 sources is explored futher below.
 ```
 
-This leaves us with `7` channels of protein markers that may be relevant for
-cell-type determination.
+```{code-cell}
+:tags: [remove-cell]
+
+num_usable_markers = len([v for v in data_to_asct_marker_mapping.values() if v != "None"])
+glue("num_usable_markers", num_usable_markers, display=False)
+```
+
+This leaves us with {glue:text}`num_usable_markers` channels of protein markers
+that may be relevant for cell-type determination.
 Even in the case where we assume each marker provides sufficient information to
 correctly identify all associated cell types, this leaves annotators with only
 a subset of all possible cell-types:

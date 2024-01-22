@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import networkx as nx
 import json
+plt.ion()
 
 fname = Path.home() / "Downloads/asct+b_graph_data_selected_organs_2024.01.20_03.14.json"
 with open(fname, "r") as fh:
