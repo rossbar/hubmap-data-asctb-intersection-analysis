@@ -69,7 +69,7 @@ import json
 Load data from the ASCT+B exporter into a graph data structure...
 
 ```{code-cell}
-fname = Path.home() / "Downloads/asct+b_graph_data_selected_organs_2024.01.20_03.14.json"
+fname = Path.home() / "Downloads/asct+b_graph_data_selected_organs_2024.01.22_10.10.json"
 with open(fname, "r") as fh:
     data = json.loads(fh.read())
 
@@ -214,9 +214,11 @@ list(data.columns)  # All columns contained in the master table
 ... and extracting all of the protein markers from the table
 
 ```{code-cell}
-all_markers = set()
-for i in range(1, 5):
-    all_markers |= set(data[f"BProtein/{i}"].dropna())
+all_markers = {
+    *itertools.chain.from_iterable(
+        data[f"BProtein/{i}"].dropna() for i in range(1, 5)
+    )
+}
 ```
 
 We can then visually inspect the subsets of cells that correspond to each
@@ -225,7 +227,7 @@ marker included in the master table:
 ```{code-cell}
 :tags: [hide-output]
 
-for m in all_markers:
+for m in sorted(all_markers):
     print(f"==================={m}================")
     print(
         data[["CT/1", "CT/2"] + \

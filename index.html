@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -36,9 +36,9 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -261,11 +261,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="asct-b-tables-omaps-and-portal-data">
-<h1>ASCT+B tables, OMAPs, and portal data<a class="headerlink" href="#asct-b-tables-omaps-and-portal-data" title="Permalink to this heading">#</a></h1>
+<h1>ASCT+B tables, OMAPs, and portal data<a class="headerlink" href="#asct-b-tables-omaps-and-portal-data" title="Link to this heading">#</a></h1>
 <p>This notebook presents a preliminary investigation of the information in the
 ASCT+B tables and OMAPs.</p>
 <section id="data-annotation">
-<h2>Data annotation<a class="headerlink" href="#data-annotation" title="Permalink to this heading">#</a></h2>
+<h2>Data annotation<a class="headerlink" href="#data-annotation" title="Link to this heading">#</a></h2>
 <p>We use the ASCT+B and OMAPs to inform cell-type annotations for the HubMAP data;
 i.e. determining the cell-type categories and a preliminary mapping of protein
 markers to cell types.</p>
@@ -273,7 +273,7 @@ markers to cell types.</p>
 actual multiplex imaging data impacts what we would expect to be able to
 annotate.</p>
 <section id="example-kidney-data">
-<h3>Example: Kidney data<a class="headerlink" href="#example-kidney-data" title="Permalink to this heading">#</a></h3>
+<h3>Example: Kidney data<a class="headerlink" href="#example-kidney-data" title="Link to this heading">#</a></h3>
 <p>The MIBI images of the kidney available on the hubmap data portal (not yet
 published, still in QA) currently contain the following marker panel:</p>
 <div class="cell docutils container">
@@ -296,7 +296,7 @@ published, still in QA) currently contain the following marker panel:</p>
 <p>Load data from the ASCT+B exporter into a graph data structure…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;Downloads/asct+b_graph_data_selected_organs_2024.01.20_03.14.json&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;Downloads/asct+b_graph_data_selected_organs_2024.01.22_10.10.json&quot;</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
@@ -685,7 +685,7 @@ Maximum detectable number of celltypes with marker panel: 16
 </section>
 </section>
 <section id="difference-between-asct-b-reporter-and-master-data-tables">
-<h2>Difference between ASCT+B reporter and master data tables<a class="headerlink" href="#difference-between-asct-b-reporter-and-master-data-tables" title="Permalink to this heading">#</a></h2>
+<h2>Difference between ASCT+B reporter and master data tables<a class="headerlink" href="#difference-between-asct-b-reporter-and-master-data-tables" title="Link to this heading">#</a></h2>
 <p>The ASCT+B information differs significantly between the reporter and the “master”
 data tables.
 I assume that the reporter draws from all of the tables combined, so it’s not
@@ -826,9 +826,11 @@ correspond to available markers) using the master table as the ASCT+B reference.
 <p>… and extracting all of the protein markers from the table</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_markers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
-    <span class="n">all_markers</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;BProtein/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_markers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">*</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;BProtein/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -837,7 +839,7 @@ correspond to available markers) using the master table as the ASCT+B reference.
 marker included in the master table:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">all_markers</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">all_markers</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;===================</span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">================&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span>
         <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;CT/1&quot;</span><span class="p">,</span> <span class="s2">&quot;CT/2&quot;</span><span class="p">]</span> <span class="o">+</span> \
@@ -853,80 +855,18 @@ marker included in the master table:</p>
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===================CDH1================
-                        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-22  Ascending Thin Limb Cell  NaN       CDH1        NaN        NaN        NaN
-
-
-
-===================CD11c================
-                          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
-61               M2-Macrophage  NaN      CD11c      CD206       CD68   
-66  Dendritic Cell (classical)  NaN      CD11c        NaN        NaN   
-
-   BProtein/4  
-61    HLA-DRA  
-66        NaN  
-
-
-
-===================MPO================
-          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-75  Neutrophil  NaN        MPO        NaN        NaN        NaN
-
-
-
-===================CD45================
-         CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-60  Leukocyte  NaN       CD45        NaN        NaN        NaN
-
-
-
-===================CD31================
-                                      CT/1 CT/2 BProtein/1 BProtein/2  \
-47                        Endothelial Cell  NaN       CD31        NaN   
-48     Afferent Arteriole Endothelial Cell  NaN       CD31        NaN   
-49     Efferent Arteriole Endothelial cell  NaN       CD31        NaN   
-50  Peritubular Capillary Endothelial Cell  NaN       CD31        NaN   
-51  Descending Vasa Recta Endothelial Cell  NaN       CD31        NaN   
-52   Ascending Vasa Recta Endothelial Cell  NaN       CD31        NaN   
-53              Lymphatic Endothelial Cell  NaN       CD31        NaN   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===================AQP1================
+                                         CT/1 CT/2 BProtein/1 BProtein/2  \
+5            Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
+12      Glomerular Capillary Endothelial Cell  NaN       AQP1        NaN   
+17  Proximal Tubule Cell Epithelial Segment 3  NaN       AQP1        NaN   
+20           Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
 
    BProtein/3 BProtein/4  
-47        NaN        NaN  
-48        NaN        NaN  
-49        NaN        NaN  
-50        NaN        NaN  
-51        NaN        NaN  
-52        NaN        NaN  
-53        NaN        NaN  
-
-
-
-===================PODXL================
-        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-2   Podocyte  NaN      PODXL        NaN        NaN        NaN
-8   Podocyte  NaN      PODXL        NaN        NaN        NaN
-11  Podocyte  NaN      PODXL        NaN        NaN        NaN
-
-
-
-===================CD20================
-      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-73  B cell  NaN       CD20    HLA-DRA        NaN        NaN
-
-
-
-===================FOXP3================
-                 CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-72  regulatory T cell  NaN      FOXP3        NaN        NaN        NaN
-
-
-
-===================SMA================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
+5         NaN        NaN  
+12        NaN        NaN  
+17        NaN        NaN  
+20        NaN        NaN  
 
 
 
@@ -951,10 +891,123 @@ Index: []
 
 
 
+===================ATP1A1================
+                                   CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+23            Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
+24   Cortical Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
+25  Medullary Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
+26                    Macula Densa cell  NaN     ATP1A1       CDH1        NaN   
+
+   BProtein/4  
+23        NaN  
+24        NaN  
+25        NaN  
+26        NaN  
+
+
+
+===================CD11c================
+                          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+61               M2-Macrophage  NaN      CD11c      CD206       CD68   
+66  Dendritic Cell (classical)  NaN      CD11c        NaN        NaN   
+
+   BProtein/4  
+61    HLA-DRA  
+66        NaN  
+
+
+
+===================CD20================
+      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+73  B cell  NaN       CD20    HLA-DRA        NaN        NaN
+
+
+
+===================CD206================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================CD3================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================CD31================
+                                      CT/1 CT/2 BProtein/1 BProtein/2  \
+47                        Endothelial Cell  NaN       CD31        NaN   
+48     Afferent Arteriole Endothelial Cell  NaN       CD31        NaN   
+49     Efferent Arteriole Endothelial cell  NaN       CD31        NaN   
+50  Peritubular Capillary Endothelial Cell  NaN       CD31        NaN   
+51  Descending Vasa Recta Endothelial Cell  NaN       CD31        NaN   
+52   Ascending Vasa Recta Endothelial Cell  NaN       CD31        NaN   
+53              Lymphatic Endothelial Cell  NaN       CD31        NaN   
+
+   BProtein/3 BProtein/4  
+47        NaN        NaN  
+48        NaN        NaN  
+49        NaN        NaN  
+50        NaN        NaN  
+51        NaN        NaN  
+52        NaN        NaN  
+53        NaN        NaN  
+
+
+
+===================CD4================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================CD45================
+         CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+60  Leukocyte  NaN       CD45        NaN        NaN        NaN
+
+
+
+===================CD68================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
 ===================CD8================
                 CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
 70            T Cell  NaN        CD8        CD3        CD4        NaN
 71  Cytotoxic T Cell  NaN        CD8        CD3        NaN        NaN
+
+
+
+===================CDH1================
+                        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+22  Ascending Thin Limb Cell  NaN       CDH1        NaN        NaN        NaN
+
+
+
+===================COL4A1================
+                    CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+58  Medullary Fibroblast  NaN     COL4A1        NaN        NaN        NaN
+59         Myofibroblast  NaN     COL4A1        SMA        NaN        NaN
+
+
+
+===================FOXP3================
+                 CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+72  regulatory T cell  NaN      FOXP3        NaN        NaN        NaN
+
+
+
+===================GATA3================
+                      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+30  Connecting Tubule Cell  NaN      GATA3       CDH1        NaN        NaN
+35    Collecting Duct Cell  NaN      GATA3       CDH1       K2C8        NaN
 
 
 
@@ -963,6 +1016,43 @@ Index: []
 62    non Classical Monocyte  NaN    HLA-DRA        NaN        NaN        NaN
 65  Dendritic Cell (general)  NaN    HLA-DRA        NaN        NaN        NaN
 68                  Monocyte  NaN    HLA-DRA        NaN        NaN        NaN
+
+
+
+===================K2C8================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================LRP2================
+                               CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
+14  Proximal Tubule Epithelial Cell  NaN       LRP2        NaN        NaN   
+
+   BProtein/4  
+14        NaN  
+
+
+
+===================MPO================
+          CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+75  Neutrophil  NaN        MPO        NaN        NaN        NaN
+
+
+
+===================OSTP================
+Empty DataFrame
+Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
+Index: []
+
+
+
+===================PODXL================
+        CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
+2   Podocyte  NaN      PODXL        NaN        NaN        NaN
+8   Podocyte  NaN      PODXL        NaN        NaN        NaN
+11  Podocyte  NaN      PODXL        NaN        NaN        NaN
 
 
 
@@ -979,56 +1069,10 @@ Index: []
 
 
 
-===================AQP1================
-                                         CT/1 CT/2 BProtein/1 BProtein/2  \
-5            Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
-12      Glomerular Capillary Endothelial Cell  NaN       AQP1        NaN   
-17  Proximal Tubule Cell Epithelial Segment 3  NaN       AQP1        NaN   
-20           Descending Thin Limb Cell Type 2  NaN       AQP1        NaN   
-
-   BProtein/3 BProtein/4  
-5         NaN        NaN  
-12        NaN        NaN  
-17        NaN        NaN  
-20        NaN        NaN  
-
-
-
-===================CD206================
+===================SMA================
 Empty DataFrame
 Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
 Index: []
-
-
-
-===================COL4A1================
-                    CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-58  Medullary Fibroblast  NaN     COL4A1        NaN        NaN        NaN
-59         Myofibroblast  NaN     COL4A1        SMA        NaN        NaN
-
-
-
-===================ATP1A1================
-                                   CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
-23            Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
-24   Cortical Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
-25  Medullary Thick Ascending Limb Cell  NaN     ATP1A1       CDH1       UMOD   
-26                    Macula Densa cell  NaN     ATP1A1       CDH1        NaN   
-
-   BProtein/4  
-23        NaN  
-24        NaN  
-25        NaN  
-26        NaN  
-
-
-
-===================LRP2================
-                               CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3  \
-14  Proximal Tubule Epithelial Cell  NaN       LRP2        NaN        NaN   
-
-   BProtein/4  
-14        NaN  
 
 
 
@@ -1038,48 +1082,6 @@ Index: []
 
   BProtein/3 BProtein/4  
 6        NaN        NaN  
-
-
-
-===================GATA3================
-                      CT/1 CT/2 BProtein/1 BProtein/2 BProtein/3 BProtein/4
-30  Connecting Tubule Cell  NaN      GATA3       CDH1        NaN        NaN
-35    Collecting Duct Cell  NaN      GATA3       CDH1       K2C8        NaN
-
-
-
-===================OSTP================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
-
-
-
-===================CD68================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
-
-
-
-===================CD3================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
-
-
-
-===================K2C8================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
-
-
-
-===================CD4================
-Empty DataFrame
-Columns: [CT/1, CT/2, BProtein/1, BProtein/2, BProtein/3, BProtein/4]
-Index: []
 
 
 
@@ -1165,7 +1167,7 @@ to be able to distinguish given the marker panel of the portal data.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4ed98301964e99d78979ffcbab1df67c62ed59ec84c295329a6c1cc4c2b9000e.png" src="_images/4ed98301964e99d78979ffcbab1df67c62ed59ec84c295329a6c1cc4c2b9000e.png" />
+<img alt="_images/c9527bd96e3f94ecad84d29ecab5e8068bdfedf63797b6caf650ea241031f9de.png" src="_images/c9527bd96e3f94ecad84d29ecab5e8068bdfedf63797b6caf650ea241031f9de.png" />
 </div>
 </div>
 </section>
@@ -1250,7 +1252,7 @@ to be able to distinguish given the marker panel of the portal data.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     <br/>
   </p>
 </div>
